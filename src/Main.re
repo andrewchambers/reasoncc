@@ -15,7 +15,7 @@ type srcPos = {
 type lexer = {
   src: srcFile,
   line: int,
-  pos: int,
+  text: string
 };
 
 type token = {
@@ -29,16 +29,23 @@ let isNumericChar = c => charInRange(c, '0', '9');
 let isIdentStart = isAlphaChar;
 let isIdentChar = c => isIdentStart(c) || isNumericChar(c) || c == '_';
 
-let restOfString = (s, offset) =>
+let substrAt = (s, offset) =>
   offset > String.length(s) ?
     "" : String.sub(s, offset, String.length(s) - 1);
+
+let substrUpto = (s, offset) => {
+  let offset = offset > String.length(s) ? String.length(s): offset;
+  String.sub(s, 0, offset);
+}
 
 let rec countCharMatches = (~n=0, s, f) =>
   if (String.length(s) == 0) {
     n;
   } else {
-    countCharMatches(~n=n + (f(s.[0]) ? 1 : 0), restOfString(s, 1), f);
+    countCharMatches(~n=n + (f(s.[0]) ? 1 : 0), substrAt(s, 1), f);
   };
+
+let countNewLines = s => countCharMatches(s, c => c == '\n');
 
 let rec countCharPrefixMatches = (s, f) =>
   if (String.length(s) == 0 || !f(s.[0])) {
@@ -48,11 +55,11 @@ let rec countCharPrefixMatches = (s, f) =>
     countCharPrefixMatches(s, f) + 1;
   };
 
-let newLexer = src => {src, pos: 0, line: 0};
+let newLexer = src => {src, text: src.text, line: 0};
 let curSrcPos = l => {line: l.line, srcFile: l.src};
 
 let nthChar = (l, n) => {
-  let s = restOfString(l.src.text, n);
+  let s = substrAt(l.text, n);
   if (String.length(s) == 0) {
     '\000'; /* For now null byte is eof, this simplifies predicate functions */
   } else {
@@ -63,12 +70,12 @@ let nthChar = (l, n) => {
 let curChar = l => nthChar(l, 0);
 
 let advanceLexer = (l, n) => {
-  let toks = restOfString(l.src.text, l.pos + n);
+  let toks = substrUpto(l.text, n);
   (
     {
       ...l,
-      pos: l.pos + n,
-      line: l.line + countCharMatches(toks, c => c == '\n'),
+      text: substrAt(l.text, n),
+      line: l.line + countNewLines(toks),
     },
     toks,
   );
@@ -76,12 +83,13 @@ let advanceLexer = (l, n) => {
 
 let matchIdent = l =>
   if (isIdentStart(curChar(l))) {
-    let n = countCharPrefixMatches(restOfString(l.src.text, 1), isIdentChar);
+    let n = countCharPrefixMatches(substrAt(l.text, 1), isIdentChar);
     let (newl, identstr) = advanceLexer(l, 1 + n);
     (newl, None);
-  } else {
+  } else { 
     (l, None);
   };
+
 
 /*
 
