@@ -16,13 +16,13 @@ To get a comparison, we can compare the reason code to C code:
 
 Some interesting objective metrics are:
 
-- lines of code
-- compiler speed
+- Lines of code.
+- Compiler speed.
 
 Some subjective metrics:
 
-- how enjoyable it is to work in.
-- how easy the code is to understand.
+- How enjoyable it is to work in.
+- How easy the code is to understand.
 
 # Build
 ```
@@ -37,6 +37,8 @@ bsb
 
 - For now we target nodejs, but reason can generate native binaries.
   There is little point in setting that up now.
-- Code is automatically formatted with refmt
+- Code is automatically formatted with refmt.
 - I don't have much experience with reason.
 - This project might be abandoned as soon as I am bored with it.
+- It might be nice to make a blog using reason react for good visualizations
+  of how everything works.
