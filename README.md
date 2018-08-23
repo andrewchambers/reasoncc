@@ -74,8 +74,7 @@ convenient to test functions via a repl. I am experimenting with a lexer
 that is immutable. Functions go from lexer => (lexer, token), and you
 can rerun them as much as you want in a repl.
 
-The syntax {...old, v=new} to make copy of a value with a new value is extra
-nice.
+The syntax {...old, v=new} to make copy of a record/struct with a small change is nice.
 
 ## Compiler errors
 
