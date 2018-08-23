@@ -50,7 +50,7 @@ bsb
 
 ## Package manager
 
-I personally dislike nodejs and npm, and bs-platform, the reason/bucklescript
+I personally dislike nodejs and npm, however bs-platform, the reason/bucklescript
 build system uses it. To avoid using npm, I personally use the nix package manager
 and installed bs-platform via a nix package I made using node2nix. I will upstream
 this package later.
@@ -59,6 +59,8 @@ What is nice though, is that people familiar with nodejs don't need to understan
 reason to install the package, and I can distribute the package via npm while
 needing very little interaction with the node ecosystem.
 
+It is actually quite impressive to watch npm build the ocaml compiler and ninja
+build tool while hiding this information from the end user.
 
 ## Type inference
 
