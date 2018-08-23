@@ -95,7 +95,7 @@ how must time formatting wastes...
 
 ## Host platform Interop
 
-This was easy to use. I only need to command line arguments, and the ability to read files
+This was easy to use. I only need command line arguments, and the ability to read files
 from disk to strings, and it only took me a few mintes to call the native nodejs readFileSync
 from a type safe interface.
 
