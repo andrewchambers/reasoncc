@@ -91,7 +91,7 @@ and doesn't even have an advanced text editor. I can just hack code to make it w
 and let the formatter fix it up.
 
 Having this in a programming language is becomming a requirement, people are realizing just
-how must time formatting wastes...
+how much time formatting wastes...
 
 ## Host platform Interop
 
