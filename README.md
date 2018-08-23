@@ -33,19 +33,6 @@ or
 bsb
 ```
 
-# Short Notes
-- For now we target nodejs, but reason can generate native binaries.
-  There is little point in setting that up now.
-
-- Code is automatically formatted with refmt... very nice.
-
-- I don't have much experience with reason.
-
-- This project might be abandoned as soon as I am bored with it.
-
-- It might be nice to make a blog using reason react for good visualizations
-  of how everything works.
-
 # Experience reports
 
 ## Package manager
@@ -105,3 +92,17 @@ and let the formatter fix it up.
 
 Having this in a programming language is becomming a requirement, people are realizing just
 how must time formatting wastes...
+
+
+# Short Notes
+- For now we target nodejs, but reason can generate native binaries.
+  There is little point in setting that up now.
+
+- Code is automatically formatted with refmt... very nice.
+
+- I don't have much experience with reason.
+
+- This project might be abandoned as soon as I am bored with it.
+
+- It might be nice to make a blog using reason react for good visualizations
+  of how everything works.
