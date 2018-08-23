@@ -34,10 +34,8 @@ bsb
 ```
 
 # Short Notes
-
 - For now we target nodejs, but reason can generate native binaries.
-  There is little point in setting that up now. I personally use the nix package manager
-  and installed bs-platform via a nix package I made using node2nix.
+  There is little point in setting that up now.
 
 - Code is automatically formatted with refmt... very nice.
 
@@ -48,7 +46,19 @@ bsb
 - It might be nice to make a blog using reason react for good visualizations
   of how everything works.
 
-# Notes on experience
+# Experience reports
+
+## Package manager
+
+I personally dislike nodejs and npm, and bs-platform, the reason/bucklescript
+build system uses it. To avoid using npm, I personally use the nix package manager
+and installed bs-platform via a nix package I made using node2nix. I will upstream
+this package later.
+
+What is nice though, is that people familiar with nodejs don't need to understand
+reason to install the package, and I can distribute the package via npm while
+needing very little interaction with the node ecosystem.
+
 
 ## Type inference
 
