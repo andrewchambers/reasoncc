@@ -35,6 +35,23 @@ bsb
 
 # Experience reports
 
+My experiences experimenting with reason:  (non web developer).
+
+## Installation
+
+
+I initially assumed I could just run something like reason-compiler file.re
+but was confused and mistaken... I wanted to use facebook reason,
+however what I actually needed was bucklescript platform, which
+is actually named bsb. I worked it out eventually,
+but the fact that the reason build tools are named things like bs-platform, bsb and ezy
+give little information about what tools are actually needed to use reason, and how they
+are related. 
+
+I did work it out in the end so it can't have been too bad, though I consider myself
+quite an experienced developer (just not a web developer).
+
+
 ## Package manager
 
 I dislike nodejs and npm, however bs-platform, the reason/bucklescript
