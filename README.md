@@ -93,6 +93,11 @@ and let the formatter fix it up.
 Having this in a programming language is becomming a requirement, people are realizing just
 how must time formatting wastes...
 
+## Host platform Interop
+
+This was easy to use. I only need to command line arguments, and the ability to read files
+from disk to strings, and it only took me a few mintes to call the native nodejs readFileSync
+from a type safe interface.
 
 # Short Notes
 - For now we target nodejs, but reason can generate native binaries.
